@@ -17,8 +17,7 @@ RUN apk add --no-cache \
     python3 \
     py3-pip \
     gnupg \
-    gnupg-keyboxd \
-    docker-cli
+    gnupg-keyboxd
 
 WORKDIR /tmp
 
@@ -79,7 +78,8 @@ RUN apk add --no-cache \
         jq \
         python3 \
         aws-cli-v2 \
-        aws-session-manager-plugin
+        aws-session-manager-plugin \
+        docker-cli
 
 # Create non-root user
 RUN addgroup -S pipeline && adduser -S pipeline -G pipeline
