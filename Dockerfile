@@ -17,7 +17,8 @@ RUN apk add --no-cache \
     python3 \
     py3-pip \
     gnupg \
-    gnupg-keyboxd
+    gnupg-keyboxd \
+    docker-cli
 
 WORKDIR /tmp
 
