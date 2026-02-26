@@ -76,6 +76,7 @@ RUN apk add --no-cache \
         openssh-client \
         curl \
         jq \
+        yq \
         python3 \
         aws-cli-v2 \
         aws-session-manager-plugin \
