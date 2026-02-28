@@ -1,7 +1,7 @@
 ############################################
 # Stage 1 — Builder (OpenTofu + Terragrunt)
 ############################################
-FROM alpine:latest AS builder
+FROM alpine:3.23.3 AS builder
 
 ARG OPENTOFU_VERSION=1.11.5
 ARG TARGETARCH=amd64
@@ -67,7 +67,7 @@ RUN set -eux && \
 ############################################
 # Stage 2 — Final Runtime
 ############################################
-FROM alpine:latest
+FROM alpine:3.23.3
 
 #RUN echo "https://awscli.amazonaws.com/alpine/latest" >> /etc/apk/repositories
 RUN apk add --no-cache \
@@ -78,9 +78,11 @@ RUN apk add --no-cache \
         jq \
         yq \
         python3 \
+        py3-pip \
         aws-cli-v2 \
         aws-session-manager-plugin \
-        docker-cli
+        docker-cli \
+        ansible
 
 # Create non-root user
 RUN addgroup -S pipeline && adduser -S pipeline -G pipeline
